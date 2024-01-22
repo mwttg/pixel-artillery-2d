@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.mwttg</groupId>
+    <artifactId>pixel-artillery-2d</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>Pixel ARTillery 2d</name>
+    <description>A library for 2D OpenGL support based on LWJGL 3</description>
+    <inceptionYear>2024</inceptionYear>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <url>todo</url>
+    <organization>
+        <name>private</name>
+        <url>https://github.com/mwttg-games</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>mwttg</id>
+            <email>marco-wittig@gmx.de</email>
+        </developer>
+    </developers>
+
+</project>
