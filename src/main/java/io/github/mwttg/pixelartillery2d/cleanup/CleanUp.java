@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery.cleanup;
+package io.github.mwttg.pixelartillery2d.cleanup;
 
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
@@ -17,7 +17,6 @@ public final class CleanUp {
     private static final List<Integer> vertexBufferObjectIds = new ArrayList<>();
     private static final List<Integer> vertexArrayObjectIds = new ArrayList<>();
     private static final List<Integer> shaderProgramIds = new ArrayList<>();
-    private static final List<Integer> shaderIds = new ArrayList<>();
     private static final List<Integer> textureIds = new ArrayList<>();
 
     private CleanUp() {
@@ -39,10 +38,6 @@ public final class CleanUp {
         shaderProgramIds.add(id);
     }
 
-    public static void addShaderId(final int id) {
-        shaderIds.add(id);
-    }
-
     public static void addTextureId(final int id) {
         textureIds.add(id);
     }
@@ -53,8 +48,6 @@ public final class CleanUp {
         textureIds.forEach(GL41::glDeleteTextures);
         LOG.debug("... free ShaderPrograms");
         shaderProgramIds.forEach(GL41::glDeleteProgram);
-        LOG.debug("... free Shaders");
-        shaderIds.forEach(GL41::glDeleteShader);
         LOG.debug("... free VertexArrayObjects");
         vertexArrayObjectIds.forEach(GL41::glDeleteVertexArrays);
         LOG.debug("... free VertexBufferObjects");

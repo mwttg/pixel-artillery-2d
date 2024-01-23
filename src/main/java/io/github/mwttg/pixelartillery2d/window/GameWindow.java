@@ -1,7 +1,7 @@
-package io.github.mwttg.pixelartillery.window;
+package io.github.mwttg.pixelartillery2d.window;
 
-import io.github.mwttg.pixelartillery.cleanup.CleanUp;
-import io.github.mwttg.pixelartillery.config.OpenGlConfiguration;
+import io.github.mwttg.pixelartillery2d.cleanup.CleanUp;
+import io.github.mwttg.pixelartillery2d.config.OpenGlConfiguration;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWKeyCallbackI;
@@ -21,7 +21,7 @@ public final class GameWindow {
     }
 
     public static long create(final OpenGlConfiguration configuration) {
-        LOG.info("create Game Window with {}", configuration.prettyFormat());
+        LOG.info("create GameWindow with {}", configuration.prettyFormat());
 
         initializeGlfw();
         final var id = initializeGameWindow(configuration);

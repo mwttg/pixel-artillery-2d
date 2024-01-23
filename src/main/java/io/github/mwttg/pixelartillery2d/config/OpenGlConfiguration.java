@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery.config;
+package io.github.mwttg.pixelartillery2d.config;
 
 public record OpenGlConfiguration(
         String title,
