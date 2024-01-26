@@ -65,10 +65,10 @@ final class AnimationFrameTimings {
     }
 
     private void alternatingAnimation() {
-        if (currentFrame >= maxFrames) {
+        if (currentFrame >= maxFrames - 1) {
             alternatingSummand = -1;
         }
-        if (currentFrame < 0) {
+        if (currentFrame < 1) {
             alternatingSummand = 1;
         }
         currentFrame = currentFrame + alternatingSummand;
