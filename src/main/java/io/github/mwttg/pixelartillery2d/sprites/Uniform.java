@@ -16,7 +16,7 @@ public final class Uniform {
     private static final String MODEL_MATRIX = "modelMatrix";
     private static final String VIEW_MATRIX = "viewMatrix";
     private static final String PROJECTION_MATRIX = "projectionMatrix";
-    private static final String TEXTURE_SAMPLER0 = "textureSampler";
+    private static final String TEXTURE_SAMPLER0 = "textureSampler0";
     private static final int CAPACITY = 16;
 
     private final Map<String, Integer> locations;
@@ -42,12 +42,12 @@ public final class Uniform {
         GL41.glUniformMatrix4fv(locations.get(MODEL_MATRIX), false, modelMatrix.get(matrixBuffer));
         GL41.glUniformMatrix4fv(locations.get(VIEW_MATRIX), false, viewMatrix.get(matrixBuffer));
         GL41.glUniformMatrix4fv(locations.get(PROJECTION_MATRIX), false, projectionMatrix.get(matrixBuffer));
-        activateTexture(locations.get(TEXTURE_SAMPLER0), textureId);
+        activateTexture0(locations.get(TEXTURE_SAMPLER0), textureId);
     }
 
-    private void activateTexture(final int locationId, final int textureId) {
+    private void activateTexture0(final int locationId, final int textureId) {
         GL41.glUniform1i(locationId, 0);
-        GL41.glActiveTexture(textureId);
+        GL41.glActiveTexture(GL41.GL_TEXTURE0);
         GL41.glBindTexture(GL41.GL_TEXTURE_2D, textureId);
     }
 }

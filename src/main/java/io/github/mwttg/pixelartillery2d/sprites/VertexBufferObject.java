@@ -26,13 +26,13 @@ final class VertexBufferObject {
     private VertexBufferObject() {
     }
 
-    static int create(final float[] vertices) {
-        return create(vertices, GL41.GL_STATIC_DRAW);
+    static int create(final float[] data) {
+        return create(data, GL41.GL_STATIC_DRAW);
     }
 
-    static int create(final float[] vertices, final int usage) {
-        final var buffer = BufferUtils.createFloatBuffer(vertices.length);
-        buffer.put(vertices);
+    static int create(final float[] data, final int usage) {
+        final var buffer = BufferUtils.createFloatBuffer(data.length);
+        buffer.put(data);
         buffer.flip();
         final var id = GL41.glGenBuffers();
         CleanUp.addVertexBufferObjectId(id);

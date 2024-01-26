@@ -92,8 +92,8 @@ final class PlaneFactory {
     }
 
     private static float[] uvCoordinates(final int currentFrame, final int maxFrames) {
-        final var width = 1.0f / maxFrames;
-        final var left = width + currentFrame;
+        final var width = 1.0f / (float) maxFrames;
+        final var left = width * currentFrame;
         final var right = left + width;
         //@formatter:off
         return new float[]{
@@ -102,7 +102,8 @@ final class PlaneFactory {
                 left,  0.0f,
                 right, 0.0f,
                 right, 1.0f,
-                left,  1.0f};
+                left,  1.0f
+        };
         //@formatter:on
     }
 }

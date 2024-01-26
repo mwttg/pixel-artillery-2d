@@ -63,7 +63,7 @@ public final class GameWindow {
 
         GLFW.glfwMakeContextCurrent(id);
         GL.createCapabilities();
-        GL41.glClearColor(0.3f, 03f, 0.3f, 1.0f);
+        GL41.glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
         GLFW.glfwSwapInterval(config.vSync() ? 1 : 0);
         GLFW.glfwShowWindow(id);
         GLFW.glfwSetInputMode(id, GLFW.GLFW_STICKY_KEYS, GLFW.GLFW_TRUE);
@@ -96,8 +96,8 @@ public final class GameWindow {
         if (videoMode == null) {
             throw new RuntimeException("An error occurred during fetching the video mode of the primary monitor");
         }
-        final var xPos = videoMode.width() - config.width() / 2;
-        final var yPos = videoMode.height() - config.height() / 2;
+        final var xPos = (videoMode.width() - config.width()) / 2;
+        final var yPos = (videoMode.height() - config.height()) / 2;
         GLFW.glfwSetWindowPos(id, xPos, yPos);
     }
 }

@@ -9,8 +9,8 @@ public class StaticSprite extends AbstractSprite implements Sprite {
     public static StaticSprite create(final float width, final float height, final String textureFile) {
         final var plane = PlaneFactory.create(width, height);
         final var vertexVboId = VertexBufferObject.create(plane.vertices());
-        final var textureVboId = VertexBufferObject.create(plane.uvCoordinates());
-        final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, textureVboId);
+        final var uvCoordinatesVboId = VertexBufferObject.create(plane.uvCoordinates());
+        final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
         final var textureId = Texture.create(textureFile);
 
         return new StaticSprite(vertexArrayObjectId, textureId);

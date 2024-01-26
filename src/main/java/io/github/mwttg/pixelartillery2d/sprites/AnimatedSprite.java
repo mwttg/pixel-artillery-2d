@@ -19,8 +19,8 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
         final var maxFrames = frameTimingsInMs.size();
         final var planeStrip = PlaneFactory.createPlaneStrip(width, height, maxFrames);
         final var vertexVboId = VertexBufferObject.create(planeStrip.vertices());
-        final var textureVboId = VertexBufferObject.create(planeStrip.uvCoordinates());
-        final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, textureVboId);
+        final var uvCoordinatesVboId = VertexBufferObject.create(planeStrip.uvCoordinates());
+        final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
         final var textureId = Texture.create(textureFile);
         final var timings = AnimationFrameTimings.create(frameTimingsInMs, type);
 
