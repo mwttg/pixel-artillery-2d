@@ -4,11 +4,11 @@ import java.util.List;
 
 public class AnimatedSprite extends AbstractSprite implements Sprite {
 
-    private final AnimationFrameTimings timings;
+    private final AnimationTimingUnit animationTimingUnit;
 
-    private AnimatedSprite(int vertexArrayObjectId, int textureId, final HorizontalFlipUnit horizontalFlipUnit, final AnimationFrameTimings timings) {
+    private AnimatedSprite(int vertexArrayObjectId, int textureId, final HorizontalFlipUnit horizontalFlipUnit, final AnimationTimingUnit animationTimingUnit) {
         super(vertexArrayObjectId, textureId, horizontalFlipUnit);
-        this.timings = timings;
+        this.animationTimingUnit = animationTimingUnit;
     }
 
     public static AnimatedSprite create(final float width, final float height, final String textureFile, final List<Integer> frameTimingsInMs) {
@@ -23,17 +23,17 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
         final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
         final var textureId = Texture.create(textureFile);
         final var horizontalFlipUnit = HorizontalFlipUnit.initialize(planeStrip, uvCoordinatesVboId);
-        final var timings = AnimationFrameTimings.create(frameTimingsInMs, type);
+        final var animationTimingUnit = AnimationTimingUnit.create(frameTimingsInMs, type);
 
-        return new AnimatedSprite(vertexArrayObjectId, textureId, horizontalFlipUnit, timings);
+        return new AnimatedSprite(vertexArrayObjectId, textureId, horizontalFlipUnit, animationTimingUnit);
     }
 
     @Override
     protected int getFirstVertex() {
-        return timings.getCurrentFrame() * 6;
+        return animationTimingUnit.getCurrentFrame() * 6;
     }
 
     public void resetAnimation() {
-        timings.reset();
+        animationTimingUnit.reset();
     }
 }

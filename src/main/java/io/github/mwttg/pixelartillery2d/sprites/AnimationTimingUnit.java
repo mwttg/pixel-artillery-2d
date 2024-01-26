@@ -2,7 +2,7 @@ package io.github.mwttg.pixelartillery2d.sprites;
 
 import java.util.List;
 
-final class AnimationFrameTimings {
+final class AnimationTimingUnit {
 
     private final List<Integer> delaysInMs;
     private final AnimationType type;
@@ -11,7 +11,7 @@ final class AnimationFrameTimings {
     private long lastTick;
     private int alternatingSummand;
 
-    private AnimationFrameTimings(final List<Integer> delaysInMs, final AnimationType type) {
+    private AnimationTimingUnit(final List<Integer> delaysInMs, final AnimationType type) {
         this.delaysInMs = delaysInMs;
         this.type = type;
         this.maxFrames = delaysInMs.size();
@@ -20,12 +20,12 @@ final class AnimationFrameTimings {
         this.alternatingSummand = 1;
     }
 
-    static AnimationFrameTimings create(final List<Integer> delaysInMs) {
-        return new AnimationFrameTimings(delaysInMs, AnimationType.LOOP);
+    static AnimationTimingUnit create(final List<Integer> delaysInMs) {
+        return new AnimationTimingUnit(delaysInMs, AnimationType.LOOP);
     }
 
-    static AnimationFrameTimings create(final List<Integer> delaysInMs, final AnimationType type) {
-        return new AnimationFrameTimings(delaysInMs, type);
+    static AnimationTimingUnit create(final List<Integer> delaysInMs, final AnimationType type) {
+        return new AnimationTimingUnit(delaysInMs, type);
     }
 
     void reset() {
