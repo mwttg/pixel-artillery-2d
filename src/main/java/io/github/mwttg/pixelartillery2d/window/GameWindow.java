@@ -20,6 +20,12 @@ public final class GameWindow {
     private GameWindow() {
     }
 
+    /**
+     * Creates a window for all OpenGL operations.
+     *
+     * @param configuration the {@link OpenGlConfiguration} for the window
+     * @return the window ID (from OpenGL)
+     */
     public static long create(final OpenGlConfiguration configuration) {
         LOG.info("create GameWindow with {}", configuration.prettyFormat());
 
