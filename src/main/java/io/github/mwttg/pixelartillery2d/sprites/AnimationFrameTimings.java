@@ -59,7 +59,7 @@ final class AnimationFrameTimings {
     }
 
     private void onceAnimation() {
-        if (currentFrame < maxFrames) {
+        if (currentFrame < maxFrames - 1) {
             currentFrame++;
         }
     }
