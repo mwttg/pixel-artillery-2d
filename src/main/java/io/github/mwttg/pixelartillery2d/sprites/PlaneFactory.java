@@ -53,12 +53,14 @@ final class PlaneFactory {
     static Plane create(final float width, final float height) {
         final var geometry = geometry(width, height);
         final var uvCoordinates = uvCoordinates(0, 1);
-        return new Plane(geometry, uvCoordinates);
+        final var uvCoordinatesHorizontalFlipped = uvCoordinatesFlippedHorizontal(0, 1);
+        return new Plane(geometry, uvCoordinates, uvCoordinatesHorizontalFlipped);
     }
 
     static Plane createPlaneStrip(final float width, final float height, final int maxFrames) {
         var geometry = new float[maxFrames * FLOATS_PER_PLANE];
         var uvCoordinates = new float[maxFrames * FLOAT_PER_UV];
+        var uvCoordinatesFlippedHorizontal = new float[maxFrames * FLOAT_PER_UV];
 
         for (int frame = 0; frame < maxFrames; frame++) {
             final var plane = geometry(width, height);
@@ -74,8 +76,15 @@ final class PlaneFactory {
                 uvCoordinates[uvIndex] = f;
                 uvIndex++;
             }
+
+            final var uvFlippedHorizontal = uvCoordinatesFlippedHorizontal(frame, maxFrames);
+            var uvIndexFlippedHorizontal = frame * FLOAT_PER_UV;
+            for (float f: uvFlippedHorizontal) {
+                uvCoordinatesFlippedHorizontal[uvIndexFlippedHorizontal] = f;
+                uvIndexFlippedHorizontal++;
+            }
         }
-        return new Plane(geometry, uvCoordinates);
+        return new Plane(geometry, uvCoordinates, uvCoordinatesFlippedHorizontal);
     }
 
     private static float[] geometry(final float width, final float height) {
@@ -103,6 +112,22 @@ final class PlaneFactory {
                 right, 0.0f,
                 right, 1.0f,
                 left,  1.0f
+        };
+        //@formatter:on
+    }
+
+    private static float[] uvCoordinatesFlippedHorizontal(final int currentFrame, final int maxFrames) {
+        final var width = 1.0f / (float) maxFrames;
+        final var left = width * currentFrame;
+        final var right = left + width;
+        //@formatter:off
+        return new float[]{
+                left, 0.0f,
+                right,  1.0f,
+                right,  0.0f,
+                left, 0.0f,
+                left, 1.0f,
+                right,  1.0f
         };
         //@formatter:on
     }

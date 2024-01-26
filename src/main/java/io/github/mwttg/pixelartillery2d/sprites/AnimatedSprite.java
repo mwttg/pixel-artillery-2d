@@ -6,8 +6,8 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
 
     private final AnimationFrameTimings timings;
 
-    private AnimatedSprite(int vertexArrayObjectId, int textureId, final AnimationFrameTimings timings) {
-        super(vertexArrayObjectId, textureId);
+    private AnimatedSprite(int vertexArrayObjectId, int textureId, final HorizontalFlipUnit horizontalFlipUnit, final AnimationFrameTimings timings) {
+        super(vertexArrayObjectId, textureId, horizontalFlipUnit);
         this.timings = timings;
     }
 
@@ -22,9 +22,10 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
         final var uvCoordinatesVboId = VertexBufferObject.create(planeStrip.uvCoordinates());
         final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
         final var textureId = Texture.create(textureFile);
+        final var horizontalFlipUnit = HorizontalFlipUnit.initialize(planeStrip, uvCoordinatesVboId);
         final var timings = AnimationFrameTimings.create(frameTimingsInMs, type);
 
-        return new AnimatedSprite(vertexArrayObjectId, textureId, timings);
+        return new AnimatedSprite(vertexArrayObjectId, textureId, horizontalFlipUnit, timings);
     }
 
     @Override
