@@ -13,6 +13,13 @@ final class Texture {
     private Texture() {
     }
 
+    /**
+     * Creates a (OpenGL) Texture from an image file (like .png). Nearest filtering is used to have 'pixel perfect'
+     * Textures (no interpolations).
+     *
+     * @param filename the path and filename to the image file for the texture
+     * @return the OpenGL ID of the Texture
+     */
     static int create(final String filename) {
         final var image = ImageFile.readFrom(filename);
         final var id = GL41.glGenTextures();

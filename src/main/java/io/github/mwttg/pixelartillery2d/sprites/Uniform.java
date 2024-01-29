@@ -27,6 +27,14 @@ public final class Uniform {
         this.matrixBuffer = BufferUtils.createFloatBuffer(CAPACITY);
     }
 
+    /**
+     * Creates an {@link Uniform} for a {@link ShaderProgram}. The Uniform is used to upload data
+     * (like Model-Matrix, Texture, etc.) to the GPU, so it can be used inside the Shader (e.g.
+     * Vertex Shader or Fragment Shader). The 'Upload' happens right before the Sprite gets rendered.
+     *
+     * @param shaderProgramId the OpenGL id of the ShaderProgram
+     * @return the {@link Uniform}
+     */
     public static Uniform create(final int shaderProgramId) {
         final var locations = Map.of(
                 MODEL_MATRIX, GL41.glGetUniformLocation(shaderProgramId, MODEL_MATRIX),
@@ -38,7 +46,7 @@ public final class Uniform {
         return new Uniform(locations);
     }
 
-    public void upload(final Matrix4f modelMatrix, final Matrix4f viewMatrix, final Matrix4f projectionMatrix, final int textureId) {
+    void upload(final Matrix4f modelMatrix, final Matrix4f viewMatrix, final Matrix4f projectionMatrix, final int textureId) {
         GL41.glUniformMatrix4fv(locations.get(MODEL_MATRIX), false, modelMatrix.get(matrixBuffer));
         GL41.glUniformMatrix4fv(locations.get(VIEW_MATRIX), false, viewMatrix.get(matrixBuffer));
         GL41.glUniformMatrix4fv(locations.get(PROJECTION_MATRIX), false, projectionMatrix.get(matrixBuffer));
