@@ -19,6 +19,13 @@
         </license>
     </licenses>
 
+    <scm>
+        <connection>scm:svn:https://github.com/mwttg/pixel-artillery-2d.git</connection>
+        <developerConnection>scm:svn:https://github.com/mwttg/pixel-artillery-2d.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/mwttg/pixel-artillery-2d</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
