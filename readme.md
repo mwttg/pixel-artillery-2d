@@ -1,3 +1,5 @@
+[![Build Pipeline](https://github.com/mwttg/pixel-artillery-2d/actions/workflows/build.yml/badge.svg)](https://github.com/mwttg/pixel-artillery-2d/actions/workflows/build.yml)
+
 # Pixel ARTillery 2D
 
 ---
