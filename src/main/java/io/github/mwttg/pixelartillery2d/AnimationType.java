@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
 /**
  * Defines how the Sprite animation should be played.

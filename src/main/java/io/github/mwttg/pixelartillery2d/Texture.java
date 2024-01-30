@@ -1,6 +1,5 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
-import io.github.mwttg.pixelartillery2d.cleanup.CleanUp;
 import org.lwjgl.opengl.GL41;
 import org.lwjgl.stb.STBImage;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
 import org.lwjgl.stb.STBImage;
 import org.lwjgl.system.MemoryStack;

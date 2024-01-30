@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL41;

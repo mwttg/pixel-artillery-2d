@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
 public class StaticSprite extends AbstractSprite implements Sprite {
 

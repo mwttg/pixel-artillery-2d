@@ -1,7 +1,5 @@
-package io.github.mwttg.pixelartillery2d.window;
+package io.github.mwttg.pixelartillery2d;
 
-import io.github.mwttg.pixelartillery2d.cleanup.CleanUp;
-import io.github.mwttg.pixelartillery2d.config.OpenGlConfiguration;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWKeyCallbackI;

@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.mainloop;
+package io.github.mwttg.pixelartillery2d;
 
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL41;

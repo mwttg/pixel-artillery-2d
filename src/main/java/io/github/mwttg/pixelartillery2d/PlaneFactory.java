@@ -1,11 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package io.github.mwttg.pixelartillery2d;
 
 // @formatter:off
 /**

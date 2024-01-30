@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.cleanup;
+package io.github.mwttg.pixelartillery2d;
 
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;

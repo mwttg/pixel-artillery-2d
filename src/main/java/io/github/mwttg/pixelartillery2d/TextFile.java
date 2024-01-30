@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d.sprites;
+package io.github.mwttg.pixelartillery2d;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
