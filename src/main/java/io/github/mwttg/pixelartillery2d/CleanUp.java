@@ -22,26 +22,29 @@ public final class CleanUp {
     private CleanUp() {
     }
 
-    public static void setGameWindowId(final Long id) {
+    static void setGameWindowId(final Long id) {
         gameWindowId = id;
     }
 
-    public static void addVertexBufferObjectId(final int id) {
+    static void addVertexBufferObjectId(final int id) {
         vertexBufferObjectIds.add(id);
     }
 
-    public static void addVertexArrayObjectId(final int id) {
+    static void addVertexArrayObjectId(final int id) {
         vertexArrayObjectIds.add(id);
     }
 
-    public static void addShaderProgramId(final int id) {
+    static void addShaderProgramId(final int id) {
         shaderProgramIds.add(id);
     }
 
-    public static void addTextureId(final int id) {
+    static void addTextureId(final int id) {
         textureIds.add(id);
     }
 
+    /**
+     * Clean up all OpenGL stuff.
+     */
     public static void purge() {
         LOG.info("clean up OpenGL");
         LOG.debug("... free Textures");
