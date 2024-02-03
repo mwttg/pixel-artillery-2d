@@ -14,4 +14,4 @@ jobs:
           distribution: 'oracle'
           architecture: x64
       - name: Build the artifact
-        run: mvn verify
+        run: mvn verify -X
