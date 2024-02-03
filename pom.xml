@@ -6,7 +6,7 @@
 
     <groupId>io.github.mwttg</groupId>
     <artifactId>pixel-artillery-2d</artifactId>
-    <version>v1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <name>Pixel ARTillery 2D</name>
     <description>A library for 2D OpenGL support based on LWJGL 3</description>
