@@ -1,0 +1,57 @@
+name: Release - Pixel ARTillery 2D
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-tag:
+        description: 'The git tag which gets generated (also the version inside the pom.xml)'
+        required: true
+        default: v1.0.0
+      new-version:
+        description: 'The new version after the release (without SNAPSHOT)'
+        required: true
+        default: v1.1.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'oracle'
+          architecture: x64
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Setup Git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Set release version
+        run: |
+          mvn versions:set -DnewVersion=${{github.event.inputs.git-tag}} -DgenerateBackupPoms=false
+          git add .
+          git commit -m "Set release version"
+          git push origin master
+          git tag ${{github.event.inputs.git-tag}}
+          git push origin ${{github.event.inputs.git-tag}}
+      - name: Maven build, sign (GPG) and deploy
+        run: mvn clean deploy
+        env:
+          MAVEN_USERNAME: ${{secrets.OSS_SONATYPE_USERNAME}}
+          MAVEN_PASSWORD: ${{secrets.OSS_SONATYPE_PASSWORD}}
+          MAVEN_GPG_PASSPHRASE: ${{secrets.MAVEN_GPG_PASSPHRASE}}
+      - name: Set new version
+        run: |
+          mvn versions:set -DnewVersion=${{github.event.inputs.new-version}}-SNAPSHOT -DgenerateBackupPoms=false
+          git add .
+          git commit -m "Set new SNAPSHOT version"
+          git push origin master

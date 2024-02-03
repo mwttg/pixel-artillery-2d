@@ -1,4 +1,4 @@
-name: Build Pipeline
+name: Build - Pixel ARTillery 2D
 
 on: push
 
