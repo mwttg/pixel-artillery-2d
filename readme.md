@@ -83,7 +83,7 @@ What texture filtering is used for the Sprites?
 #### Answer:
 This library is build for pixel art. 
 That means there is no antialiasing for textures instead it is 'pixel perfect'.
-In detail the `GL_TEXTURE_MIN_FILTER` is set to `GL41.GL_NEAREST_MIPMAP_NEAREST` and the `GL_TEXTURE_MAG_FILTER` is set to `GL_NEAREST`.
+In detail the `GL_TEXTURE_MIN_FILTER` is set to `GL_NEAREST_MIPMAP_NEAREST` and the `GL_TEXTURE_MAG_FILTER` is set to `GL_NEAREST`.
 
 ---
 
