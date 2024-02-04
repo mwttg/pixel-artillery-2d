@@ -6,11 +6,11 @@ on:
       git-tag:
         description: 'The git tag which gets generated (also the version inside the pom.xml)'
         required: true
-        default: v1.0.0
+        default: 1.0.0
       new-version:
         description: 'The new version after the release (without SNAPSHOT)'
         required: true
-        default: v1.1.0
+        default: 1.1.0
 
 jobs:
   release:
