@@ -2,8 +2,6 @@
 
 # Pixel ARTillery 2D
 
----
-
 A small library for rendering Pixel Art with OpenGL 4.1 based on [LWJGL 3][lwjgl] and [JOML][joml].
 
 ## Requirements
@@ -16,7 +14,11 @@ A small library for rendering Pixel Art with OpenGL 4.1 based on [LWJGL 3][lwjgl
 
 ### Step 1: Import the dependency (e.g. with Maven)
 ````xml
-
+<dependency>
+    <groupId>io.github.mwttg</groupId>
+    <artifactId>pixel-artillery-2d</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ````
 
 ### Step 2: Create a window
@@ -66,8 +68,6 @@ An example can be found [here][pixel-artillery-example].
 
 ## FAQ
 
----
-
 #### Question:
 Why OpenGL 4.1?
 
@@ -84,6 +84,14 @@ What texture filtering is used for the Sprites?
 This library is build for pixel art. 
 That means there is no antialiasing for textures instead it is 'pixel perfect'.
 In detail the `GL_TEXTURE_MIN_FILTER` is set to `GL41.GL_NEAREST_MIPMAP_NEAREST` and the `GL_TEXTURE_MAG_FILTER` is set to `GL_NEAREST`.
+
+---
+
+#### Question:
+Is there example code that uses this library?
+
+#### Answer:
+Yes. see: https://github.com/mwttg-games/pixel-artillery-2d-test
 
 [comment]: <> (collection of links sorted alphabetically ascending)
 [joml]: https://github.com/JOML-CI/JOML
