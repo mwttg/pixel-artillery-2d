@@ -2,6 +2,10 @@ package io.github.mwttg.pixelartillery2d;
 
 import org.joml.Matrix4f;
 
+/**
+ * The interface for Sprites ({@link StaticSprite} and {@link AnimatedSprite}) to
+ * define the common methods.
+ */
 public interface Sprite {
 
     /**

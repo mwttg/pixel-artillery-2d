@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class with a method to clean up all the OpenGL stuff (Buffers, Textures, Programs, etc.)
+ */
 public final class CleanUp {
 
     private static final Logger LOG = LoggerFactory.getLogger(CleanUp.class);

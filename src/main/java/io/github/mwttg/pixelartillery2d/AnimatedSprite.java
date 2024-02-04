@@ -2,6 +2,9 @@ package io.github.mwttg.pixelartillery2d;
 
 import java.util.List;
 
+/**
+ * A class for an animated Sprite.
+ */
 public class AnimatedSprite extends AbstractSprite implements Sprite {
 
     private final AnimationTimingUnit animationTimingUnit;
@@ -50,7 +53,7 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
     }
 
     @Override
-    protected int getFirstVertex() {
+    int getFirstVertex() {
         return animationTimingUnit.getCurrentFrame() * 6;
     }
 

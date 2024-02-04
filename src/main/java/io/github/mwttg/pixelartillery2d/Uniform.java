@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import java.nio.FloatBuffer;
 import java.util.Map;
 
+/**
+ * A class which can be used for uploading data (like: model Matrix, view Matrix, Texture, etc.) to the GPU
+ * for the ShaderProgram.
+ */
 public final class Uniform {
 
     private static final Logger LOG = LoggerFactory.getLogger(Uniform.class);

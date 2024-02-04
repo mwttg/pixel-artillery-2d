@@ -9,7 +9,7 @@ abstract class AbstractSprite {
     private final int textureId;
     private final HorizontalFlipUnit horizontalFlipUnit;
 
-    protected AbstractSprite(final int vertexArrayObjectId, final int textureId, final HorizontalFlipUnit horizontalFlipUnit) {
+    AbstractSprite(final int vertexArrayObjectId, final int textureId, final HorizontalFlipUnit horizontalFlipUnit) {
         this.vertexArrayObjectId = vertexArrayObjectId;
         this.textureId = textureId;
         this.horizontalFlipUnit = horizontalFlipUnit;
@@ -46,5 +46,5 @@ abstract class AbstractSprite {
         horizontalFlipUnit.executeHorizontalFlip();
     }
 
-    protected abstract int getFirstVertex();
+    abstract int getFirstVertex();
 }

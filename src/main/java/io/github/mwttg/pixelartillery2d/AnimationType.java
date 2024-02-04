@@ -1,7 +1,7 @@
 package io.github.mwttg.pixelartillery2d;
 
 /**
- * Defines how the Sprite animation should be played.
+ * Defines how the Sprite animation should be played (for {@link AnimatedSprite}).
  */
 public enum AnimationType {
 

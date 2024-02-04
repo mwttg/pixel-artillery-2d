@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
+/**
+ * A class for creating a ShaderProgram (VertexShader and FragmentShader).
+ */
 public final class ShaderProgram {
 
     private static final Logger LOG = LoggerFactory.getLogger(ShaderProgram.class);

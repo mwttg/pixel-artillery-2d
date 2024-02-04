@@ -1,5 +1,8 @@
 package io.github.mwttg.pixelartillery2d;
 
+/**
+ * A class for a static (not animated) Sprite.
+ */
 public class StaticSprite extends AbstractSprite implements Sprite {
 
     private StaticSprite(final int vertexArrayObjectId, final int textureId, final HorizontalFlipUnit horizontalFlipUnit) {
@@ -26,7 +29,7 @@ public class StaticSprite extends AbstractSprite implements Sprite {
     }
 
     @Override
-    protected int getFirstVertex() {
+    int getFirstVertex() {
         return 0;
     }
 }

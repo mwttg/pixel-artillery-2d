@@ -21,6 +21,10 @@ public record OpenGlConfiguration(
         float farPlane
 ) {
 
+    /**
+     * A #toString method but in a pretty format.
+     * @return the formatted String
+     */
     public String prettyFormat() {
         return """
                 OpenGL 4.1 Configuration

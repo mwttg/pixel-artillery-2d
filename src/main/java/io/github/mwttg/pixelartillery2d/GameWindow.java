@@ -9,6 +9,9 @@ import org.lwjgl.system.MemoryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This class is responsible for creating a game window.
+ */
 public final class GameWindow {
 
     private static final Logger LOG = LoggerFactory.getLogger(GameWindow.class);

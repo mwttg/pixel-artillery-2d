@@ -3,6 +3,9 @@ package io.github.mwttg.pixelartillery2d;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL41;
 
+/**
+ * A class which can be extended for creating a simple application with Pixel ARTillery 2D
+ */
 public abstract class SimpleApplication {
 
     private final long gameWindowId;
