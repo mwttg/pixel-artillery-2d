@@ -178,7 +178,7 @@
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
-                        <phase>verify</phase>
+                        <phase>verify</phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal -->
                         <goals>
                             <goal>sign</goal>
                         </goals>
