@@ -56,7 +56,7 @@ public final class ShaderProgram {
         GL41.glAttachShader(shaderProgramId, vertexShaderId);
         GL41.glAttachShader(shaderProgramId, fragmentShaderId);
         linkShaderProgram(shaderProgramId);
-        CleanUp.addShaderProgramId(shaderProgramId);
+        OpenGlCleanUp.addShaderProgramId(shaderProgramId);
         GL41.glDetachShader(shaderProgramId, vertexShaderId);
         GL41.glDetachShader(shaderProgramId, fragmentShaderId);
         GL41.glDeleteShader(vertexShaderId);

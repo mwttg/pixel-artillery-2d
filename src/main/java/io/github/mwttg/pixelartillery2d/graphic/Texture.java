@@ -42,7 +42,7 @@ final class Texture {
         STBImage.stbi_image_free(image.pixels());
 
         LOG.debug("create Texture {}x{} with id='{}' from file '{}'", image.width(), image.height(), id, filename);
-        CleanUp.addTextureId(id);
+        OpenGlCleanUp.addTextureId(id);
         return id;
     }
 }

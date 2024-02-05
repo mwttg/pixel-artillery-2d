@@ -6,15 +6,27 @@ import org.lwjgl.opengl.GL41;
 /**
  * A class which can be extended for creating a simple application with Pixel ARTillery 2D
  */
-public abstract class SimpleApplication {
+public abstract class SimpleGraphicApplication {
 
     private final long gameWindowId;
 
-    protected SimpleApplication(final OpenGlConfiguration configuration) {
+    /**
+     * Constructor for a simple graphic application
+     *
+     * @param configuration the {@link OpenGlConfiguration}
+     */
+    protected SimpleGraphicApplication(final OpenGlConfiguration configuration) {
         this.gameWindowId = GameWindow.create(configuration);
     }
 
-    protected SimpleApplication(final String name, final int width, final int height) {
+    /**
+     * Constructor for a simple graphic application
+     *
+     * @param name the name of the window
+     * @param width the width of the window (in pixels)
+     * @param height the height of the window (in pixels)
+     */
+    protected SimpleGraphicApplication(final String name, final int width, final int height) {
         final var configuration = new OpenGlConfiguration(name, width, height, true, true, 0.01f, 100.0f);
         this.gameWindowId = GameWindow.create(configuration);
     }
@@ -29,6 +41,9 @@ public abstract class SimpleApplication {
      */
     protected abstract void gameLoop();
 
+    /**
+     * Start the loop of the application
+     */
     public void start() {
         initialize();
 
@@ -41,6 +56,6 @@ public abstract class SimpleApplication {
             GLFW.glfwPollEvents();
         }
 
-        CleanUp.purge();
+        OpenGlCleanUp.purge();
     }
 }

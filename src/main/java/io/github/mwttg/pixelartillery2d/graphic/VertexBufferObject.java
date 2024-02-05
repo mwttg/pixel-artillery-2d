@@ -34,7 +34,7 @@ final class VertexBufferObject {
         buffer.put(data);
         buffer.flip();
         final var id = GL41.glGenBuffers();
-        CleanUp.addVertexBufferObjectId(id);
+        OpenGlCleanUp.addVertexBufferObjectId(id);
         GL41.glBindBuffer(GL41.GL_ARRAY_BUFFER, id);
         GL41.glBufferData(GL41.GL_ARRAY_BUFFER, buffer, usage);
 

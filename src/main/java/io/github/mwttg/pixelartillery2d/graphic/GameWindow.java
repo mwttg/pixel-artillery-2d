@@ -32,7 +32,7 @@ public final class GameWindow {
 
         initializeGlfw();
         final var id = initializeGameWindow(configuration);
-        CleanUp.setGameWindowId(id);
+        OpenGlCleanUp.setGameWindowId(id);
         initializeKeyCallback(id);
         centerGameWindow(id, configuration);
 
