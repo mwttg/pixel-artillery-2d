@@ -13,24 +13,8 @@ import org.slf4j.LoggerFactory;
  */
 public class SoundListener {
 
-//    private static final Logger LOG = LoggerFactory.getLogger(SoundListener.class);
-
     private SoundListener() {
     }
-
-// TODO delete
-
-//    public static void create(final Vector3f position) {
-//        LOG.info("create OpenAL sound listener");
-//        AL11.alListener3f(AL11.AL_POSITION, position.x(), position.y(), position.z());
-//        AL11.alListener3f(AL11.AL_VELOCITY, 0, 0, 0);
-//    }
-//
-//    public static void create(final Matrix4f matrix) {
-//        LOG.info("create OpenAL sound listener");
-//        AL11.alListener3f(AL11.AL_VELOCITY, 0, 0, 0);
-//        updatePosition(matrix);
-//    }
 
     /**
      * Update the position of the {@link SoundListener}.
