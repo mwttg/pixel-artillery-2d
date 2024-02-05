@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 /**
  * The configuration for the OpenGL context.

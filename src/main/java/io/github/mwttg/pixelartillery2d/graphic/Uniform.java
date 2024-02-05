@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;

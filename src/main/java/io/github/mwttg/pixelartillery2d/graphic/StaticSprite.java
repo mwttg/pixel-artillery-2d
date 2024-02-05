@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 /**
  * A class for a static (not animated) Sprite.

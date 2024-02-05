@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 /**
  * Defines how the Sprite animation should be played (for {@link AnimatedSprite}).
