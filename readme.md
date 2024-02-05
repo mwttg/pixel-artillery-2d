@@ -2,7 +2,7 @@
 
 # Pixel ARTillery 2D
 
-A small library for rendering Pixel Art with OpenGL 4.1 and playing sounds with OpenAL based on [LWJGL 3][lwjgl] and [JOML][joml].
+A small library for rendering Pixel Art with OpenGL 4.1 and playing sounds with OpenAL 1.1 based on [LWJGL 3][lwjgl] and [JOML][joml].
 
 ## Requirements
 |        | Version |
