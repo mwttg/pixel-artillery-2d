@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 import org.lwjgl.opengl.GL41;
 import org.lwjgl.stb.STBImage;
@@ -42,7 +42,7 @@ final class Texture {
         STBImage.stbi_image_free(image.pixels());
 
         LOG.debug("create Texture {}x{} with id='{}' from file '{}'", image.width(), image.height(), id, filename);
-        CleanUp.addTextureId(id);
+        OpenGlCleanUp.addTextureId(id);
         return id;
     }
 }

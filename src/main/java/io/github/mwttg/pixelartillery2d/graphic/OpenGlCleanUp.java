@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * A class with a method to clean up all the OpenGL stuff (Buffers, Textures, Programs, etc.)
  */
-public final class CleanUp {
+public final class OpenGlCleanUp {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CleanUp.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OpenGlCleanUp.class);
 
     private static long gameWindowId;
     private static final List<Integer> vertexBufferObjectIds = new ArrayList<>();
@@ -22,7 +22,7 @@ public final class CleanUp {
     private static final List<Integer> shaderProgramIds = new ArrayList<>();
     private static final List<Integer> textureIds = new ArrayList<>();
 
-    private CleanUp() {
+    private OpenGlCleanUp() {
     }
 
     static void setGameWindowId(final Long id) {

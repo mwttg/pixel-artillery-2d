@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 import org.lwjgl.opengl.GL41;
 import org.slf4j.Logger;
@@ -56,7 +56,7 @@ public final class ShaderProgram {
         GL41.glAttachShader(shaderProgramId, vertexShaderId);
         GL41.glAttachShader(shaderProgramId, fragmentShaderId);
         linkShaderProgram(shaderProgramId);
-        CleanUp.addShaderProgramId(shaderProgramId);
+        OpenGlCleanUp.addShaderProgramId(shaderProgramId);
         GL41.glDetachShader(shaderProgramId, vertexShaderId);
         GL41.glDetachShader(shaderProgramId, fragmentShaderId);
         GL41.glDeleteShader(vertexShaderId);

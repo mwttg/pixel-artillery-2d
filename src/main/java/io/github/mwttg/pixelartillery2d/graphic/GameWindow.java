@@ -1,4 +1,4 @@
-package io.github.mwttg.pixelartillery2d;
+package io.github.mwttg.pixelartillery2d.graphic;
 
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -32,7 +32,7 @@ public final class GameWindow {
 
         initializeGlfw();
         final var id = initializeGameWindow(configuration);
-        CleanUp.setGameWindowId(id);
+        OpenGlCleanUp.setGameWindowId(id);
         initializeKeyCallback(id);
         centerGameWindow(id, configuration);
 
