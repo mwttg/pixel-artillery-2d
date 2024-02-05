@@ -11,13 +11,20 @@ import java.nio.IntBuffer;
 
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-public final class SoundDevice {
+
+/**
+ * A class for initializing the sound device.
+ */
+public class SoundDevice {
 
     private static final Logger LOG = LoggerFactory.getLogger(SoundDevice.class);
 
     private SoundDevice() {
     }
 
+    /**
+     * Initializes the sound device and makes it ready to use.
+     */
     public static void initialize() {
         final var deviceId = ALC11.alcOpenDevice((ByteBuffer) null);
         OpenAlCleanUp.addDeviceId(deviceId);
