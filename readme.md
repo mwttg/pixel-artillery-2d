@@ -92,7 +92,7 @@ In detail the `GL_TEXTURE_MIN_FILTER` is set to `GL_NEAREST_MIPMAP_NEAREST` and 
 Is there example code that uses this library?
 
 #### Answer:
-Yes. see: https://github.com/mwttg-games/pixel-artillery-2d-test
+Yes. see: https://github.com/mwttg-games/pixel-artillery-2d-test for graphics and sound example.
 
 [comment]: <> (collection of links sorted alphabetically ascending)
 [joml]: https://github.com/JOML-CI/JOML
