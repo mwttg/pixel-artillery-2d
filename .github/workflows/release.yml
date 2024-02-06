@@ -1,4 +1,4 @@
-name: Release - Pixel ARTillery 2D
+name: Release
 
 on:
   workflow_dispatch:
