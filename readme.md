@@ -1,4 +1,5 @@
 [![Build Pipeline](https://github.com/mwttg/pixel-artillery-2d/actions/workflows/build.yml/badge.svg)](https://github.com/mwttg/pixel-artillery-2d/actions/workflows/build.yml)
+[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.mwttg/pixel-artillery-2d?style=plastic)](https://central.sonatype.com/search?q=mwttg+pixel-artillery-2d)
 
 # Pixel ARTillery 2D
 
