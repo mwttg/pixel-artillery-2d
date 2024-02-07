@@ -109,4 +109,15 @@ public class Sound {
     public void setGain(float gain) {
         AL11.alSourcef(soundSourceId, AL11.AL_GAIN, gain);
     }
+
+    /**
+     *
+     */
+    public void loopSound(final boolean isLoop) {
+        if (isLoop) {
+            AL11.alSourcei(soundSourceId, AL11.AL_LOOPING, AL11.AL_TRUE);
+        } else {
+            AL11.alSourcei(soundSourceId, AL11.AL_LOOPING, AL11.AL_FALSE);
+        }
+    }
 }
