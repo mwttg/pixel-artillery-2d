@@ -3,8 +3,6 @@ package io.github.mwttg.pixelartillery2d.sound;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.openal.AL11;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * A class which represents the sound listener (the receiver) of the played {@link Sound}s. This is usually
@@ -59,5 +57,14 @@ public class SoundListener {
      */
     public static void updateVelocity(final Vector3f velocity) {
         AL11.alListener3f(AL11.AL_VELOCITY, velocity.x(), velocity.y(), velocity.z());
+    }
+
+    /**
+     * Set the gain (master volume) of the listener.
+     *
+     * @param gain the gain/volume
+     */
+    public static void setGain(final float gain) {
+        AL11.alListenerf(AL11.AL_GAIN, gain);
     }
 }
