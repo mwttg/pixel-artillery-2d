@@ -31,13 +31,13 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- dependencies -->
-        <joml-version>1.10.5</joml-version>
-        <logback-version>1.4.14</logback-version>
-        <lwjgl-version>3.3.3</lwjgl-version>
+        <joml-version>1.10.8</joml-version>
+        <logback-version>1.5.16</logback-version>
+        <lwjgl-version>3.3.6</lwjgl-version>
         <!-- Plugins -->
-        <mavenGpgPlugin.version>3.1.0</mavenGpgPlugin.version>
-        <mavenJavaDocPlugin.version>3.6.3</mavenJavaDocPlugin.version>
-        <mavenSourcePlugin.version>3.3.0</mavenSourcePlugin.version>
+        <mavenGpgPlugin.version>3.2.7</mavenGpgPlugin.version>
+        <mavenJavaDocPlugin.version>3.11.2</mavenJavaDocPlugin.version>
+        <mavenSourcePlugin.version>3.3.1</mavenSourcePlugin.version>
     </properties>
 
     <dependencies>
