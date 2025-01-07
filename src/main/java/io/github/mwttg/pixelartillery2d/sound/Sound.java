@@ -102,7 +102,11 @@ public class Sound {
     AL11.alSourcef(soundSourceId, AL11.AL_GAIN, gain);
   }
 
-  /** */
+  /**
+   * Sets if the sound should be played in a loop or not.
+   *
+   * @param isLoop set to true or false
+   */
   public void loopSound(final boolean isLoop) {
     if (isLoop) {
       AL11.alSourcei(soundSourceId, AL11.AL_LOOPING, AL11.AL_TRUE);
