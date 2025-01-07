@@ -8,25 +8,27 @@ package io.github.mwttg.pixelartillery2d.graphic;
  * @param height the height of the window (in pixel)
  * @param fullScreen a flag for full-screen
  * @param vSync a flag for vertical sync
- * @param nearPlane the near plane (in world coordinates). The closest distance to start rendering stuff (z-coordinate)
- * @param farPlane the far plane (in world coordinates). The most far away distance before stop rendering stuff (z-coordinate)
+ * @param nearPlane the near plane (in world coordinates). The closest distance to start rendering
+ *     stuff (z-coordinate)
+ * @param farPlane the far plane (in world coordinates). The most far away distance before stop
+ *     rendering stuff (z-coordinate)
  */
 public record OpenGlConfiguration(
-        String title,
-        int width,
-        int height,
-        boolean fullScreen,
-        boolean vSync,
-        float nearPlane,
-        float farPlane
-) {
+    String title,
+    int width,
+    int height,
+    boolean fullScreen,
+    boolean vSync,
+    float nearPlane,
+    float farPlane) {
 
-    /**
-     * A #toString method but in a pretty format.
-     * @return the formatted String
-     */
-    public String prettyFormat() {
-        return """
+  /**
+   * A #toString method but in a pretty format.
+   *
+   * @return the formatted String
+   */
+  public String prettyFormat() {
+    return """
                 OpenGL 4.1 Configuration
                     - Title ......................... %s
                     - Window Dimension .............. %sx%s
@@ -34,6 +36,7 @@ public record OpenGlConfiguration(
                     - VSync ......................... %s
                     - near Plane .................... %.2f
                     - far Plane ..................... %.2f
-                """.formatted(title, width, height, fullScreen, vSync, nearPlane, farPlane);
-    }
+                """
+        .formatted(title, width, height, fullScreen, vSync, nearPlane, farPlane);
+  }
 }

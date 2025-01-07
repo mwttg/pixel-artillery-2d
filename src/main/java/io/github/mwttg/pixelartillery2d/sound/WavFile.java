@@ -14,8 +14,7 @@ final class WavFile {
 
     private static final Logger LOG = LoggerFactory.getLogger(WavFile.class);
 
-    private WavFile() {
-    }
+    private WavFile() {}
 
     static SoundData readFrom(final String filename) {
         LOG.info("read WavFile: '{}'", filename);
@@ -33,7 +32,7 @@ final class WavFile {
         }
     }
 
-    private static int getOpenAlFormat(AudioFormat format) {
+    private static int getOpenAlFormat(final AudioFormat format) {
         final var channels = format.getChannels();
         final var sampleSize = format.getSampleSizeInBits();
         final var tuple = new Pair(channels, sampleSize);
@@ -42,8 +41,8 @@ final class WavFile {
             case Pair(var c, var s) when (c == 1) && (s == 16) -> AL11.AL_FORMAT_MONO16;
             case Pair(var c, var s) when (c == 2) && (s == 8) -> AL11.AL_FORMAT_STEREO8;
             case Pair(var c, var s) when (c == 2) && (s == 16) -> AL11.AL_FORMAT_STEREO16;
-            default ->
-                    throw new IllegalArgumentException("Unsupported format channels = '%s', sampleSize = '%s' bit".formatted(channels, sampleSize));
+            default -> throw new IllegalArgumentException(
+                    "Unsupported format channels = '%s', sampleSize = '%s' bit".formatted(channels, sampleSize));
         };
     }
 
