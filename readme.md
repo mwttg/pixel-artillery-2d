@@ -19,7 +19,7 @@ A small library for rendering Pixel Art with OpenGL 4.1 and playing sounds with 
 <dependency>
     <groupId>io.github.mwttg</groupId>
     <artifactId>pixel-artillery-2d</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 </dependency>
 ````
 
