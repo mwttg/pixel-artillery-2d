@@ -35,9 +35,11 @@
         <logback-version>1.5.16</logback-version>
         <lwjgl-version>3.3.6</lwjgl-version>
         <!-- Plugins -->
+        <googleJavaStyle.version>1.25.2</googleJavaStyle.version>
         <mavenGpgPlugin.version>3.2.7</mavenGpgPlugin.version>
         <mavenJavaDocPlugin.version>3.11.2</mavenJavaDocPlugin.version>
         <mavenSourcePlugin.version>3.3.1</mavenSourcePlugin.version>
+        <mavenSpotlessPlugin.version>2.44.2</mavenSpotlessPlugin.version>
     </properties>
 
     <dependencies>
@@ -201,7 +203,7 @@
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
-                        <phase>verify</phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal -->
+                        <phase>deploy</phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal -->
                         <goals>
                             <goal>sign</goal>
                         </goals>
@@ -237,6 +239,37 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>${mavenSpotlessPlugin.version}</version>
+                <configuration>
+                    <upToDateChecking>
+                        <enabled>false</enabled>
+                    </upToDateChecking>
+                    <java>
+                        <toggleOffOn />
+                        <includes>
+                            <include>src/main/java/**/*.java</include>
+                            <include>src/test/java/**/*.java</include>
+                        </includes>
+                        <googleJavaFormat>
+                            <version>${googleJavaStyle.version}</version>
+                            <style>GOOGLE</style>
+                            <reflowLongStrings>true</reflowLongStrings>
+                            <formatJavadoc>true</formatJavadoc>
+                        </googleJavaFormat>
+                    </java>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>compile</phase>
                     </execution>
                 </executions>
             </plugin>

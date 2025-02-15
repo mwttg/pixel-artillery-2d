@@ -44,7 +44,8 @@ final class TextFile {
       return bufferedReader.lines().collect(Collectors.joining("\n"));
     } catch (IOException e) {
       LOG.error(
-          "An error occurred during reading the text file '{}' from resources folder. The Exception was: ",
+          "An error occurred during reading the text file '{}' from resources folder. The Exception"
+              + " was: ",
           filename,
           e);
       throw new RuntimeException(e);
