@@ -23,7 +23,8 @@ abstract class AbstractSprite {
    *
    * @param uniform the {@link Uniform} which is used for uploading data to the GPU. The Uniform
    *     belongs to the {@link ShaderProgram} which is used for rendering the Sprite
-   * @param modelMatrix the Model-Matrix (position, rotation, scaling of the plane in the world)
+   * @param modelMatrix the Model-Matrix (position, rotation, scaling of the Sprite plane in the
+   *     world)
    * @param viewMatrix the View-Matrix (the camera)
    * @param projectionMatrix the Projection-Matrix (in 2D usually an orthographic projection)
    */

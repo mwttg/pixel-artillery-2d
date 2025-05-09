@@ -10,7 +10,7 @@ final class VertexBufferObject {
 
   private static final Logger LOG = LoggerFactory.getLogger(VertexBufferObject.class);
 
-  private static final Map<Integer, String> USAGE_TABLE =
+  static final Map<Integer, String> USAGE_TABLE =
       Map.of(
           0x88E1, "GL_STREAM_READ",
           0x88E2, "GL_STREAM_COPY",

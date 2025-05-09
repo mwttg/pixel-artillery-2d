@@ -29,6 +29,18 @@ public final class ShaderProgram {
   }
 
   /**
+   * Creates the default Instanced Shader Program (simple drawing of multiple (but same) static
+   * Sprites without effects).
+   *
+   * @return the OpenGL ID of the Shader Program
+   */
+  public static int createDefaultInstancedShader() {
+    final String vertexShaderCode = TextFile.readFromResources("/shader/vertex-instanced.glsl");
+    final String fragmentShaderCode = TextFile.readFromResources("/shader/fragment.glsl");
+    return createShaderProgram(vertexShaderCode, fragmentShaderCode);
+  }
+
+  /**
    * Creates a Shader Program from a custom Vertex Shader file and a custom Fragment Shader file.
    *
    * @param vertexShaderFile the file with the Vertex Shader source code

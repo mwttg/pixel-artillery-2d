@@ -9,14 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A class which can be used for uploading data (like: model Matrix, view Matrix, Texture) to the
- * GPU for the {@link ShaderProgram}.
+ * A class which can be used for uploading data (like: view Matrix, projection Matrix, Texture) to
+ * the GPU for an instanced {@link ShaderProgram}.
  */
-public final class Uniform {
+public class InstancedUniform {
 
-  private static final Logger LOG = LoggerFactory.getLogger(Uniform.class);
+  private static final Logger LOG = LoggerFactory.getLogger(InstancedUniform.class);
 
-  private static final String MODEL_MATRIX = "modelMatrix";
   private static final String VIEW_MATRIX = "viewMatrix";
   private static final String PROJECTION_MATRIX = "projectionMatrix";
   private static final String TEXTURE_SAMPLER0 = "textureSampler0";
@@ -25,36 +24,31 @@ public final class Uniform {
   private final Map<String, Integer> locations;
   private final FloatBuffer matrixBuffer;
 
-  private Uniform(final Map<String, Integer> locations) {
+  private InstancedUniform(final Map<String, Integer> locations) {
     this.locations = locations;
     this.matrixBuffer = BufferUtils.createFloatBuffer(CAPACITY);
   }
 
   /**
-   * Creates an {@link Uniform} for a {@link ShaderProgram}. The Uniform is used to upload data
-   * (like Model-Matrix, Texture, etc.) to the GPU, so it can be used inside the Shader (e.g. Vertex
-   * Shader or Fragment Shader). The 'Upload' happens right before the Sprite gets rendered.
+   * Creates an {@link InstancedUniform} for an instanced {@link ShaderProgram}. The
+   * InstancedUniform is used to upload data (like View-Matrix, Texture, etc.= to the GPU, so it can
+   * be used inside the Shader (e.g. instanced Vertex Shader or Fragment Shader). The upload happens
+   * right before the {@link InstancedStaticSprite} gets rendered.
    *
    * @param shaderProgramId the OpenGL id of the {@link ShaderProgram}
-   * @return the {@link Uniform}
+   * @return the {@link InstancedUniform}
    */
-  public static Uniform create(final int shaderProgramId) {
+  public static InstancedUniform create(final int shaderProgramId) {
     final var locations =
         Map.of(
-            MODEL_MATRIX, GL41.glGetUniformLocation(shaderProgramId, MODEL_MATRIX),
             VIEW_MATRIX, GL41.glGetUniformLocation(shaderProgramId, VIEW_MATRIX),
             PROJECTION_MATRIX, GL41.glGetUniformLocation(shaderProgramId, PROJECTION_MATRIX),
             TEXTURE_SAMPLER0, GL41.glGetUniformLocation(shaderProgramId, TEXTURE_SAMPLER0));
-    LOG.info("create Uniform for ShaderProgram with id='{}'", shaderProgramId);
-    return new Uniform(locations);
+    LOG.info("create InstancedUniform for ShaderProgram with id='{}'", shaderProgramId);
+    return new InstancedUniform(locations);
   }
 
-  void upload(
-      final Matrix4f modelMatrix,
-      final Matrix4f viewMatrix,
-      final Matrix4f projectionMatrix,
-      final int textureId) {
-    GL41.glUniformMatrix4fv(locations.get(MODEL_MATRIX), false, modelMatrix.get(matrixBuffer));
+  void upload(final Matrix4f viewMatrix, final Matrix4f projectionMatrix, final int textureId) {
     GL41.glUniformMatrix4fv(locations.get(VIEW_MATRIX), false, viewMatrix.get(matrixBuffer));
     GL41.glUniformMatrix4fv(
         locations.get(PROJECTION_MATRIX), false, projectionMatrix.get(matrixBuffer));
