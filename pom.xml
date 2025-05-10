@@ -32,14 +32,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- dependencies -->
         <joml-version>1.10.8</joml-version>
-        <logback-version>1.5.16</logback-version>
+        <logback-version>1.5.18</logback-version>
         <lwjgl-version>3.3.6</lwjgl-version>
         <!-- Plugins -->
-        <googleJavaStyle.version>1.25.2</googleJavaStyle.version>
+        <googleJavaStyle.version>1.27.0</googleJavaStyle.version>
         <mavenGpgPlugin.version>3.2.7</mavenGpgPlugin.version>
         <mavenJavaDocPlugin.version>3.11.2</mavenJavaDocPlugin.version>
         <mavenSourcePlugin.version>3.3.1</mavenSourcePlugin.version>
-        <mavenSpotlessPlugin.version>2.44.2</mavenSpotlessPlugin.version>
+        <mavenSpotlessPlugin.version>2.44.4</mavenSpotlessPlugin.version>
     </properties>
 
     <dependencies>
