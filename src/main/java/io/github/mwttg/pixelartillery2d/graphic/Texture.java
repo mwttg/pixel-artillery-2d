@@ -19,8 +19,8 @@ final class Texture {
    * @return the OpenGL ID of the Texture
    */
   static int create(final String filename) {
-    final var image = ImageFile.readFrom(filename);
-    final var id = GL41.glGenTextures();
+    final Image image = ImageFile.readFrom(filename);
+    final int id = GL41.glGenTextures();
     GL41.glBindTexture(GL41.GL_TEXTURE_2D, id);
     GL41.glPixelStorei(GL41.GL_UNPACK_ALIGNMENT, 1);
     GL41.glTexImage2D(

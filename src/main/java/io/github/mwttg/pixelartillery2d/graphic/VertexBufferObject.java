@@ -1,5 +1,6 @@
 package io.github.mwttg.pixelartillery2d.graphic;
 
+import java.nio.FloatBuffer;
 import java.util.Map;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL41;
@@ -28,10 +29,10 @@ final class VertexBufferObject {
   }
 
   static int create(final float[] data, final int usage) {
-    final var buffer = BufferUtils.createFloatBuffer(data.length);
+    final FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
     buffer.put(data);
     buffer.flip();
-    final var id = GL41.glGenBuffers();
+    final int id = GL41.glGenBuffers();
     OpenGlCleanUp.addVertexBufferObjectId(id);
     GL41.glBindBuffer(GL41.GL_ARRAY_BUFFER, id);
     GL41.glBufferData(GL41.GL_ARRAY_BUFFER, buffer, usage);

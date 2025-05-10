@@ -43,34 +43,34 @@ final class PlaneFactory {
   private PlaneFactory() {}
 
   static Plane create(final float width, final float height) {
-    final var geometry = geometry(width, height);
-    final var uvCoordinates = uvCoordinates(0, 1);
-    final var uvCoordinatesHorizontalFlipped = uvCoordinatesFlippedHorizontal(0, 1);
+    final float[] geometry = geometry(width, height);
+    final float[] uvCoordinates = uvCoordinates(0, 1);
+    final float[] uvCoordinatesHorizontalFlipped = uvCoordinatesFlippedHorizontal(0, 1);
     return new Plane(geometry, uvCoordinates, uvCoordinatesHorizontalFlipped);
   }
 
   static Plane createPlaneStrip(final float width, final float height, final int maxFrames) {
-    var geometry = new float[maxFrames * FLOATS_PER_PLANE];
-    var uvCoordinates = new float[maxFrames * FLOAT_PER_UV];
-    var uvCoordinatesFlippedHorizontal = new float[maxFrames * FLOAT_PER_UV];
+    float[] geometry = new float[maxFrames * FLOATS_PER_PLANE];
+    float[] uvCoordinates = new float[maxFrames * FLOAT_PER_UV];
+    float[] uvCoordinatesFlippedHorizontal = new float[maxFrames * FLOAT_PER_UV];
 
     for (int frame = 0; frame < maxFrames; frame++) {
-      final var plane = geometry(width, height);
-      var geometryIndex = frame * FLOATS_PER_PLANE;
+      final float[] plane = geometry(width, height);
+      int geometryIndex = frame * FLOATS_PER_PLANE;
       for (float f : plane) {
         geometry[geometryIndex] = f;
         geometryIndex++;
       }
 
-      final var uv = uvCoordinates(frame, maxFrames);
-      var uvIndex = frame * FLOAT_PER_UV;
+      final float[] uv = uvCoordinates(frame, maxFrames);
+      int uvIndex = frame * FLOAT_PER_UV;
       for (float f : uv) {
         uvCoordinates[uvIndex] = f;
         uvIndex++;
       }
 
-      final var uvFlippedHorizontal = uvCoordinatesFlippedHorizontal(frame, maxFrames);
-      var uvIndexFlippedHorizontal = frame * FLOAT_PER_UV;
+      final float[] uvFlippedHorizontal = uvCoordinatesFlippedHorizontal(frame, maxFrames);
+      int uvIndexFlippedHorizontal = frame * FLOAT_PER_UV;
       for (float f : uvFlippedHorizontal) {
         uvCoordinatesFlippedHorizontal[uvIndexFlippedHorizontal] = f;
         uvIndexFlippedHorizontal++;
@@ -93,9 +93,9 @@ final class PlaneFactory {
   }
 
   private static float[] uvCoordinates(final int currentFrame, final int maxFrames) {
-    final var width = 1.0f / (float) maxFrames;
-    final var left = width * currentFrame;
-    final var right = left + width;
+    final float width = 1.0f / (float) maxFrames;
+    final float left = width * currentFrame;
+    final float right = left + width;
     // spotless:off
     return new float[]{
             right, 0.0f,
@@ -110,9 +110,9 @@ final class PlaneFactory {
 
   private static float[] uvCoordinatesFlippedHorizontal(
       final int currentFrame, final int maxFrames) {
-    final var width = 1.0f / (float) maxFrames;
-    final var left = width * currentFrame;
-    final var right = left + width;
+    final float width = 1.0f / (float) maxFrames;
+    final float left = width * currentFrame;
+    final float right = left + width;
     // spotless:off
     return new float[]{
             left,  0.0f,

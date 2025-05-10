@@ -39,7 +39,7 @@ public class InstancedUniform {
    * @return the {@link InstancedUniform}
    */
   public static InstancedUniform create(final int shaderProgramId) {
-    final var locations =
+    final Map<String, Integer> locations =
         Map.of(
             VIEW_MATRIX, GL41.glGetUniformLocation(shaderProgramId, VIEW_MATRIX),
             PROJECTION_MATRIX, GL41.glGetUniformLocation(shaderProgramId, PROJECTION_MATRIX),

@@ -3,6 +3,7 @@ package io.github.mwttg.pixelartillery2d.graphic;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWKeyCallbackI;
+import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL41;
 import org.lwjgl.system.MemoryUtil;
@@ -28,7 +29,7 @@ public final class GameWindow {
     LOG.info("create GameWindow with {}", configuration.prettyFormat());
 
     initializeGlfw();
-    final var id = initializeGameWindow(configuration);
+    final long id = initializeGameWindow(configuration);
     OpenGlCleanUp.setGameWindowId(id);
     initializeKeyCallback(id);
     centerGameWindow(id, configuration);
@@ -53,8 +54,8 @@ public final class GameWindow {
     GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_FORWARD_COMPAT, GL41.GL_TRUE);
     GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_CORE_PROFILE);
 
-    final var monitor = GLFW.glfwGetPrimaryMonitor();
-    final var id =
+    final long monitor = GLFW.glfwGetPrimaryMonitor();
+    final long id =
         GLFW.glfwCreateWindow(
             config.width(), config.height(), config.title(), monitor, MemoryUtil.NULL);
     if (id == MemoryUtil.NULL) {
@@ -92,14 +93,14 @@ public final class GameWindow {
   private static void centerGameWindow(final long id, final OpenGlConfiguration config) {
     LOG.debug("... center GameWindow");
 
-    final var primaryMonitor = GLFW.glfwGetPrimaryMonitor();
-    final var videoMode = GLFW.glfwGetVideoMode(primaryMonitor);
+    final long primaryMonitor = GLFW.glfwGetPrimaryMonitor();
+    final GLFWVidMode videoMode = GLFW.glfwGetVideoMode(primaryMonitor);
     if (videoMode == null) {
       throw new RuntimeException(
           "An error occurred during fetching the video mode of the primary monitor");
     }
-    final var xPos = (videoMode.width() - config.width()) / 2;
-    final var yPos = (videoMode.height() - config.height()) / 2;
+    final int xPos = (videoMode.width() - config.width()) / 2;
+    final int yPos = (videoMode.height() - config.height()) / 2;
     GLFW.glfwSetWindowPos(id, xPos, yPos);
   }
 }

@@ -1,5 +1,6 @@
 package io.github.mwttg.pixelartillery2d.sound;
 
+import java.nio.ByteBuffer;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.openal.AL11;
 import org.slf4j.Logger;
@@ -12,11 +13,11 @@ final class SoundBuffer {
   private SoundBuffer() {}
 
   static int create(final SoundData soundFileData) {
-    final var data = BufferUtils.createByteBuffer(soundFileData.data().length);
+    final ByteBuffer data = BufferUtils.createByteBuffer(soundFileData.data().length);
     data.put(soundFileData.data());
     data.flip();
 
-    final var id = AL11.alGenBuffers();
+    final int id = AL11.alGenBuffers();
     OpenAlCleanUp.addSoundBufferId(id);
     AL11.alBufferData(id, soundFileData.openAlFormat(), data, soundFileData.sampleRate());
     LOG.debug("... create SoundBuffer with id='{}'", id);

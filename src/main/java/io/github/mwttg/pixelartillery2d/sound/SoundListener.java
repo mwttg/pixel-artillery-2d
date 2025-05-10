@@ -29,7 +29,7 @@ public class SoundListener {
    * @param modelMatrix the model matrix of the listener
    */
   public static void updatePositionM(final Matrix4f modelMatrix) {
-    final var position = new Vector3f();
+    final Vector3f position = new Vector3f();
     modelMatrix.getTranslation(position);
     AL11.alListener3f(AL11.AL_POSITION, position.x(), position.y(), position.z());
   }
@@ -41,11 +41,11 @@ public class SoundListener {
    */
   public static void updatePositionC(final Matrix4f viewMatrix) {
     // http://forum.lwjgl.org/index.php?topic=6080.0
-    final var at = new Vector3f();
+    final Vector3f at = new Vector3f();
     viewMatrix.positiveZ(at).negate();
-    final var up = new Vector3f();
+    final Vector3f up = new Vector3f();
     viewMatrix.positiveY(up);
-    final var data = new float[] {at.x(), at.y(), at.z(), up.x(), up.y(), up.z()};
+    final float[] data = new float[] {at.x(), at.y(), at.z(), up.x(), up.y(), up.z()};
     AL11.alListenerfv(AL11.AL_ORIENTATION, data);
   }
 

@@ -31,9 +31,9 @@ public class Sound {
    * @return the {@link Sound}
    */
   public static Sound create(final String filename, final boolean loop) {
-    final var soundFileData = WavFile.readFrom(filename);
-    final var soundBufferId = SoundBuffer.create(soundFileData);
-    final var soundSourceId = SoundSource.create(soundBufferId, loop, new Vector3f());
+    final SoundData soundFileData = WavFile.readFrom(filename);
+    final int soundBufferId = SoundBuffer.create(soundFileData);
+    final int soundSourceId = SoundSource.create(soundBufferId, loop, new Vector3f());
 
     return new Sound(soundSourceId);
   }
@@ -78,7 +78,7 @@ public class Sound {
    * @param modelMatrix the model matrix of the object which should have the sound
    */
   public void updatePosition(final Matrix4f modelMatrix) {
-    final var result = new Vector3f();
+    final Vector3f result = new Vector3f();
     modelMatrix.getTranslation(result);
     updatePosition(result);
   }

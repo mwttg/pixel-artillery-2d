@@ -25,7 +25,7 @@ public abstract class SimpleGraphicApplication {
    * @param height the height of the window (in pixels)
    */
   protected SimpleGraphicApplication(final String name, final int width, final int height) {
-    final var configuration =
+    final OpenGlConfiguration configuration =
         new OpenGlConfiguration(name, width, height, true, true, 0.01f, 100.0f);
     this.gameWindowId = GameWindow.create(configuration);
   }

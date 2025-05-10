@@ -1,5 +1,7 @@
 package io.github.mwttg.pixelartillery2d.graphic;
 
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
 import org.lwjgl.stb.STBImage;
 import org.lwjgl.system.MemoryStack;
 import org.slf4j.Logger;
@@ -15,13 +17,13 @@ final class ImageFile {
     assert filename != null : "filename for reading a ImageFile was null";
     assert !filename.isEmpty() : "filename for reading a ImageFile was empty";
 
-    try (final var stack = MemoryStack.stackPush()) {
-      final var width = stack.mallocInt(1);
-      final var height = stack.mallocInt(1);
-      final var color = stack.mallocInt(1);
+    try (final MemoryStack stack = MemoryStack.stackPush()) {
+      final IntBuffer width = stack.mallocInt(1);
+      final IntBuffer height = stack.mallocInt(1);
+      final IntBuffer color = stack.mallocInt(1);
 
       STBImage.stbi_set_flip_vertically_on_load(true);
-      final var pixels = STBImage.stbi_load(filename, width, height, color, 4);
+      final ByteBuffer pixels = STBImage.stbi_load(filename, width, height, color, 4);
       if (pixels == null) {
         LOG.error(
             "An error occurred during reading the ImageFile '{}'. The reason was: {}",

@@ -10,7 +10,7 @@ final class SoundSource {
   private static final Logger LOG = LoggerFactory.getLogger(SoundSource.class);
 
   static int create(final int bufferId, final boolean loop, final Vector3f position) {
-    final var id = AL11.alGenSources();
+    final int id = AL11.alGenSources();
     LOG.debug("... create SoundSource with id='{}'", id);
     OpenAlCleanUp.addSoundSourceId(id);
     if (loop) {

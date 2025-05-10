@@ -34,7 +34,7 @@ final class AnimationTimingUnit {
   }
 
   int getCurrentFrame() {
-    final var now = System.currentTimeMillis();
+    final long now = System.currentTimeMillis();
     if (now - lastTick > delaysInMs.get(currentFrame)) {
       lastTick = System.currentTimeMillis();
       nextFrame();

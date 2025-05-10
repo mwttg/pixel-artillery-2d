@@ -58,14 +58,16 @@ public class AnimatedSprite extends AbstractSprite implements Sprite {
       final String textureFile,
       final List<Integer> frameTimingsInMs,
       final AnimationType type) {
-    final var maxFrames = frameTimingsInMs.size();
-    final var planeStrip = PlaneFactory.createPlaneStrip(width, height, maxFrames);
-    final var vertexVboId = VertexBufferObject.create(planeStrip.vertices());
-    final var uvCoordinatesVboId = VertexBufferObject.create(planeStrip.uvCoordinates());
-    final var vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
-    final var textureId = Texture.create(textureFile);
-    final var horizontalFlipUnit = HorizontalFlipUnit.initialize(planeStrip, uvCoordinatesVboId);
-    final var animationTimingUnit = AnimationTimingUnit.create(frameTimingsInMs, type);
+    final int maxFrames = frameTimingsInMs.size();
+    final Plane planeStrip = PlaneFactory.createPlaneStrip(width, height, maxFrames);
+    final int vertexVboId = VertexBufferObject.create(planeStrip.vertices());
+    final int uvCoordinatesVboId = VertexBufferObject.create(planeStrip.uvCoordinates());
+    final int vertexArrayObjectId = VertexArrayObject.create(vertexVboId, uvCoordinatesVboId);
+    final int textureId = Texture.create(textureFile);
+    final HorizontalFlipUnit horizontalFlipUnit =
+        HorizontalFlipUnit.initialize(planeStrip, uvCoordinatesVboId);
+    final AnimationTimingUnit animationTimingUnit =
+        AnimationTimingUnit.create(frameTimingsInMs, type);
 
     return new AnimatedSprite(
         vertexArrayObjectId, textureId, horizontalFlipUnit, animationTimingUnit);

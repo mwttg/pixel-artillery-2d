@@ -39,7 +39,7 @@ public final class Uniform {
    * @return the {@link Uniform}
    */
   public static Uniform create(final int shaderProgramId) {
-    final var locations =
+    final Map<String, Integer> locations =
         Map.of(
             MODEL_MATRIX, GL41.glGetUniformLocation(shaderProgramId, MODEL_MATRIX),
             VIEW_MATRIX, GL41.glGetUniformLocation(shaderProgramId, VIEW_MATRIX),

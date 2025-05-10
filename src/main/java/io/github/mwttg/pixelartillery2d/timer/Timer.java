@@ -16,8 +16,8 @@ public class Timer {
    * @return passed time in seconds
    */
   public float getDeltaTime() {
-    final var currentTick = System.currentTimeMillis();
-    final var delta = (currentTick - lastTick) / 1000.0f;
+    final long currentTick = System.currentTimeMillis();
+    final float delta = (currentTick - lastTick) / 1000.0f;
     lastTick = currentTick;
     return delta;
   }

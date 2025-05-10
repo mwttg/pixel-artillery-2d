@@ -23,8 +23,8 @@ public final class ShaderProgram {
    * @return the OpenGL ID of the Shader Program
    */
   public static int createDefaultShader() {
-    final var vertexShaderCode = TextFile.readFromResources("/shader/vertex.glsl");
-    final var fragmentShaderCode = TextFile.readFromResources("/shader/fragment.glsl");
+    final String vertexShaderCode = TextFile.readFromResources("/shader/vertex.glsl");
+    final String fragmentShaderCode = TextFile.readFromResources("/shader/fragment.glsl");
     return createShaderProgram(vertexShaderCode, fragmentShaderCode);
   }
 
@@ -48,20 +48,20 @@ public final class ShaderProgram {
    * @return the OpenGL ID of the Shader Program
    */
   public static int createFrom(final String vertexShaderFile, final String fragmentShaderFile) {
-    final var vertexShaderCode = TextFile.readFrom(vertexShaderFile);
-    final var fragmentShaderCode = TextFile.readFrom(fragmentShaderFile);
+    final String vertexShaderCode = TextFile.readFrom(vertexShaderFile);
+    final String fragmentShaderCode = TextFile.readFrom(fragmentShaderFile);
     return createShaderProgram(vertexShaderCode, fragmentShaderCode);
   }
 
   private static int createShaderProgram(
       final String vertexShaderCode, final String fragmentShaderCode) {
-    final var vertexShaderId = createShader(GL41.GL_VERTEX_SHADER);
+    final int vertexShaderId = createShader(GL41.GL_VERTEX_SHADER);
     compileShader(vertexShaderId, vertexShaderCode);
 
-    final var fragmentShaderId = createShader(GL41.GL_FRAGMENT_SHADER);
+    final int fragmentShaderId = createShader(GL41.GL_FRAGMENT_SHADER);
     compileShader(fragmentShaderId, fragmentShaderCode);
 
-    final var shaderProgramId = GL41.glCreateProgram();
+    final int shaderProgramId = GL41.glCreateProgram();
     GL41.glAttachShader(shaderProgramId, vertexShaderId);
     GL41.glAttachShader(shaderProgramId, fragmentShaderId);
     linkShaderProgram(shaderProgramId);
@@ -97,7 +97,7 @@ public final class ShaderProgram {
   }
 
   private static int createShader(final int type) {
-    final var id = GL41.glCreateShader(type);
+    final int id = GL41.glCreateShader(type);
     if (id == 0) {
       throw new RuntimeException(
           "Can't create Shader of type '%s'"

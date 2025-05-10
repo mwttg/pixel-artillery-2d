@@ -11,7 +11,7 @@ final class VertexArrayObject {
   private VertexArrayObject() {}
 
   static int create(final int vertexVboId, final int textureVboId) {
-    final var id = GL41.glGenVertexArrays();
+    final int id = GL41.glGenVertexArrays();
     OpenGlCleanUp.addVertexArrayObjectId(id);
     GL41.glBindVertexArray(id);
     GL41.glBindBuffer(GL41.GL_ARRAY_BUFFER, vertexVboId);

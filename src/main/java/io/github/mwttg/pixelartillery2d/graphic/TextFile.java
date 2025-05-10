@@ -2,11 +2,14 @@ package io.github.mwttg.pixelartillery2d.graphic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +22,8 @@ final class TextFile {
   static String readFrom(final String filename) {
     checkPreconditions(filename);
 
-    final var path = Paths.get(filename);
-    try (final var lines = Files.lines(path)) {
+    final Path path = Paths.get(filename);
+    try (final Stream<String> lines = Files.lines(path)) {
       LOG.info("read TextFile '{}'", filename);
       return lines.collect(Collectors.joining("\n"));
     } catch (IOException e) {
@@ -33,12 +36,12 @@ final class TextFile {
   static String readFromResources(final String filename) {
     checkPreconditions(filename);
 
-    try (final var stream = TextFile.class.getResourceAsStream(filename)) {
+    try (final InputStream stream = TextFile.class.getResourceAsStream(filename)) {
       if (stream == null) {
         throw new RuntimeException(
             "Unable to get stream to resource file '%s'".formatted(filename));
       }
-      final var bufferedReader =
+      final BufferedReader bufferedReader =
           new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
       LOG.info("read TextFile from resources '{}'", filename);
       return bufferedReader.lines().collect(Collectors.joining("\n"));
