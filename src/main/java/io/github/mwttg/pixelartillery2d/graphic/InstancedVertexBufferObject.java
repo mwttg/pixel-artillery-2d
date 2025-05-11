@@ -31,6 +31,8 @@ final class InstancedVertexBufferObject {
 
   static void pushModelMatrices(final int vboId, final List<Matrix4f> matrices) {
     final int size = matrices.size();
+    // ToDo: move Buffer to create function, so it's only instantiated once (but return only id is
+    // no longer possible - and free memory has to be handled another way)
     final FloatBuffer buffer = MemoryUtil.memAllocFloat(size * MATRIX4F_SIZE_OF_FLOATS);
     for (int index = 0; index < size; index++) {
       final Matrix4f model = matrices.get(index);
