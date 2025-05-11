@@ -171,10 +171,10 @@
         </dependency>
     </dependencies>
 
-    <url>https://github.com/mwttg-games/pixel-artillery-2d</url>
+    <url>https://github.com/mwttg/pixel-artillery-2d</url>
     <organization>
         <name>private</name>
-        <url>https://github.com/mwttg-games</url>
+        <url>https://github.com/mwttg</url>
     </organization>
     <developers>
         <developer>
