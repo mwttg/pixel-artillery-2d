@@ -203,7 +203,9 @@
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
-                        <phase>deploy</phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal -->
+                        <phase>
+                            verify
+                        </phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal DeFAULT is 'verify' -->
                         <goals>
                             <goal>sign</goal>
                         </goals>
@@ -251,7 +253,7 @@
                         <enabled>false</enabled>
                     </upToDateChecking>
                     <java>
-                        <toggleOffOn />
+                        <toggleOffOn/>
                         <includes>
                             <include>src/main/java/**/*.java</include>
                             <include>src/test/java/**/*.java</include>
