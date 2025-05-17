@@ -26,10 +26,10 @@ jobs:
           java-version: '21'
           distribution: 'oracle'
           architecture: x64
-          server-id: ossrh
+          server-id: maven-central
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-          gpg-private-key: ${{secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-private-key: ${{secrets.MAVEN_GPG_PRIVATE_KEY}}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Setup Git config
         run: |
@@ -46,8 +46,8 @@ jobs:
       - name: Maven build, sign (GPG) and deploy
         run: mvn clean deploy
         env:
-          MAVEN_USERNAME: ${{secrets.OSS_SONATYPE_USERNAME}}
-          MAVEN_PASSWORD: ${{secrets.OSS_SONATYPE_PASSWORD}}
+          MAVEN_USERNAME: ${{secrets.MAVEN_CENTRAL_USER_TOKEN_USERNAME}}
+          MAVEN_PASSWORD: ${{secrets.MAVEN_CENTRAL_USER_TOKEN_PASSWORD}}
           MAVEN_GPG_PASSPHRASE: ${{secrets.MAVEN_GPG_PASSPHRASE}}
       - name: Set new version
         run: |

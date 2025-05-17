@@ -19,6 +19,11 @@
         </license>
     </licenses>
 
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/mwttg/pixel-artillery-2d/issues</url>
+    </issueManagement>
+
     <scm>
         <connection>scm:svn:https://github.com/mwttg/pixel-artillery-2d.git</connection>
         <developerConnection>scm:svn:https://github.com/mwttg/pixel-artillery-2d.git</developerConnection>
@@ -38,6 +43,7 @@
         <googleJavaStyle.version>1.27.0</googleJavaStyle.version>
         <mavenGpgPlugin.version>3.2.7</mavenGpgPlugin.version>
         <mavenJavaDocPlugin.version>3.11.2</mavenJavaDocPlugin.version>
+        <mavenCentralPublishPlugin.version>0.7.0</mavenCentralPublishPlugin.version>
         <mavenSourcePlugin.version>3.3.1</mavenSourcePlugin.version>
         <mavenSpotlessPlugin.version>2.44.4</mavenSpotlessPlugin.version>
     </properties>
@@ -183,19 +189,18 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${mavenCentralPublishPlugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>maven-central</publishingServerId>
+                    <deploymentName>Pixel ARTillery 2D - Deployment</deploymentName>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -205,7 +210,7 @@
                         <id>sign-artifacts</id>
                         <phase>
                             verify
-                        </phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal DeFAULT is 'verify' -->
+                        </phase> <!-- Change to 'deploy' if locally GPG key is missing for build goal (DEFAULT is 'verify') -->
                         <goals>
                             <goal>sign</goal>
                         </goals>
