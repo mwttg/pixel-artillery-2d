@@ -179,7 +179,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>maven-central</publishingServerId>
-                    <deploymentName>Pixel ARTillery 2D - Deployment</deploymentName>
+                    <deploymentName>Pixel ARTillery 2D - Deployment of Version: ${project.version}</deploymentName>
                 </configuration>
             </plugin>
             <plugin>
