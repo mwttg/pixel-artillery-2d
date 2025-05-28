@@ -31,7 +31,7 @@ public class InstancedUniform {
 
   /**
    * Creates an {@link InstancedUniform} for an instanced {@link ShaderProgram}. The
-   * InstancedUniform is used to upload data (like View-Matrix, Texture, etc.= to the GPU, so it can
+   * InstancedUniform is used to upload data (like View-Matrix, Texture, etc.) to the GPU, so it can
    * be used inside the Shader (e.g. instanced Vertex Shader or Fragment Shader). The upload happens
    * right before the {@link InstancedStaticSprite} gets rendered.
    *

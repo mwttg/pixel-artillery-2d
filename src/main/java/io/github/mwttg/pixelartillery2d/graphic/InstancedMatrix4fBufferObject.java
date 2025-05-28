@@ -8,28 +8,28 @@ import org.lwjgl.system.MemoryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-final class InstancedVertexBufferObject {
+final class InstancedMatrix4fBufferObject {
 
-  private static final Logger LOG = LoggerFactory.getLogger(InstancedVertexBufferObject.class);
+  private static final Logger LOG = LoggerFactory.getLogger(InstancedMatrix4fBufferObject.class);
 
   private static final int USAGE = GL41.GL_DYNAMIC_DRAW;
   private static final int MATRIX4F_SIZE_OF_FLOATS = 4 * 4;
 
-  private InstancedVertexBufferObject() {}
+  private InstancedMatrix4fBufferObject() {}
 
   static int create() {
     final int id = GL41.glGenBuffers();
     OpenGlCleanUp.addVertexBufferObjectId(id);
 
     LOG.debug(
-        "create InstancedVertexBufferObject with id='{}' of usage='{}'",
+        "create InstancedMatrix4fVertexBufferObject with id='{}' of usage='{}'",
         id,
         VertexBufferObject.USAGE_TABLE.getOrDefault(USAGE, "UNKNOWN"));
 
     return id;
   }
 
-  static void pushModelMatrices(final int vboId, final List<Matrix4f> matrices) {
+  static void pushMatrices(final int vboId, final List<Matrix4f> matrices) {
     final int size = matrices.size();
     // ToDo: move Buffer to create function, so it's only instantiated once (but return only id is
     // no longer possible - and free memory has to be handled another way)

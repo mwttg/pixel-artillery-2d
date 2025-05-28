@@ -79,7 +79,7 @@ final class PlaneFactory {
     return new Plane(geometry, uvCoordinates, uvCoordinatesFlippedHorizontal);
   }
 
-  private static float[] geometry(final float width, final float height) {
+  static float[] geometry(final float width, final float height) {
     // spotless:off
     return new float[]{
             width, 0.0f,   0.0f,
