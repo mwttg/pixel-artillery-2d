@@ -29,7 +29,7 @@ public class InstancedStaticSprite {
    *     the Sprite gets 'drawn on'
    * @param height the height of the Sprite in world dimension units (the width of the plane, where
    *     the Sprite gets 'drawn on'
-   * @param textureFile the txture file (like .png)
+   * @param textureFile the texture file (like .png)
    * @return the {@link InstancedStaticSprite}
    */
   public static InstancedStaticSprite create(
@@ -37,7 +37,7 @@ public class InstancedStaticSprite {
     final Plane plane = PlaneFactory.create(width, height);
     final int vertexVboId = VertexBufferObject.create(plane.vertices());
     final int uvCoordinatesVboId = VertexBufferObject.create(plane.uvCoordinates());
-    final int modelMatrixVboId = InstancedVertexBufferObject.create();
+    final int modelMatrixVboId = InstancedMatrix4fBufferObject.create();
     final int vertexArrayObjectId =
         InstancedVertexArrayObject.create(vertexVboId, uvCoordinatesVboId, modelMatrixVboId);
     final int textureId = Texture.create(textureFile);
@@ -64,7 +64,7 @@ public class InstancedStaticSprite {
       final Matrix4f projectionMatrix) {
 
     uniform.upload(viewMatrix, projectionMatrix, textureId);
-    InstancedVertexBufferObject.pushModelMatrices(modelMatricesVertexBufferObjectId, modelMatrices);
+    InstancedMatrix4fBufferObject.pushMatrices(modelMatricesVertexBufferObjectId, modelMatrices);
     GL41.glBindVertexArray(vertexArrayObjectId);
     GL41.glDrawArraysInstanced(GL41.GL_TRIANGLES, 0, 6, modelMatrices.size());
   }

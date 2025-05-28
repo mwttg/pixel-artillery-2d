@@ -41,6 +41,18 @@ public final class ShaderProgram {
   }
 
   /**
+   * Creates the default Instanced Shader Program for Particles (simple drawing of multiple (but
+   * same) geometry with defined colors.
+   *
+   * @return the OpenGL ID of the Shader Program
+   */
+  public static int createDefaultParticleShader() {
+    final String vertexShaderCode = TextFile.readFromResources("/shader/particle-vertex.glsl");
+    final String fragmentShaderCode = TextFile.readFromResources("/shader/particle-fragment.glsl");
+    return createShaderProgram(vertexShaderCode, fragmentShaderCode);
+  }
+
+  /**
    * Creates a Shader Program from a custom Vertex Shader file and a custom Fragment Shader file.
    *
    * @param vertexShaderFile the file with the Vertex Shader source code
